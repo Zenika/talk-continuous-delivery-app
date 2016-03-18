@@ -116,25 +116,13 @@
 
     <distributionManagement>
         <repository>
-            <id>releases</id>
+            <id>nexus</id>
             <url>http://ci-tools/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
-            <id>snapshots</id>
+            <id>nexus</id>
             <url>http://ci-tools/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
 
-    <repositories>
-        <repository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>spring-releases</id>
-            <url>https://repo.spring.io/libs-release</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>
