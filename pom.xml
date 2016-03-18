@@ -21,6 +21,7 @@
         <developerConnection>scm:git:http://ci-tools/gogs/poussma/server-core.git</developerConnection>
     </scm>
 
+
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -64,6 +65,20 @@
     <build>
         <plugins>
             <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <!-- enable release profile during the release, create IPS package, and sign bits. -->
+                    <prepareVerifyArgs>-P release,sign</prepareVerifyArgs>
+                    <!-- work around for a bug in javadoc plugin that causes the release to fail. see MRELEASE-271 -->
+                    <preparationGoals>clean install</preparationGoals>
+                    <pushChanges>false</pushChanges>
+                    <localCheckout>true</localCheckout>
+                    <tagNameFormat>core-@{project.version}</tagNameFormat>
+                </configuration>
+            </plugin>
+
+            <plugin>
                 <groupId>external.atlassian.jgitflow</groupId>
                 <artifactId>jgitflow-maven-plugin</artifactId>
                 <version>1.0-m5.1</version>
@@ -98,6 +113,17 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus</id>
+            <url>http://ci-tools/nexus/content/repositories/snapshots</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus</id>
+            <url>http://ci-tools/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <repositories>
         <repository>
