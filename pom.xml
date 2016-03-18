@@ -116,11 +116,11 @@
 
     <distributionManagement>
         <repository>
-            <id>nexus</id>
-            <url>http://ci-tools/nexus/content/repositories/snapshots</url>
+            <id>releases</id>
+            <url>http://ci-tools/nexus/content/repositories/releases</url>
         </repository>
         <snapshotRepository>
-            <id>nexus</id>
+            <id>snapshots</id>
             <url>http://ci-tools/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
