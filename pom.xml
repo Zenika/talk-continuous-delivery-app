@@ -16,9 +16,9 @@
     <packaging>war</packaging>
 
     <scm>
-        <url>http://ci-tools/gogs/poussma/server-core</url>
-        <connection>scm:git:http://ci-tools/gogs/poussma/server-core.git</connection>
-        <developerConnection>scm:git:http://ci-tools/gogs/poussma/server-core.git</developerConnection>
+        <url>http://ci-tools/gogs/my-startup/server</url>
+        <connection>scm:git:http://ci-tools/gogs/my-startup/server.git</connection>
+        <developerConnection>scm:git:http://ci-tools/gogs/my-startup/server.git</developerConnection>
     </scm>
 
 
