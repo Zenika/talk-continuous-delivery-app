@@ -14,7 +14,7 @@
     </parent>
 
     <properties>
-        <project.scm.id>gogs<project.scm.id>
+        <project.scm.id>gogs</project.scm.id>
     </properties>
 
     <packaging>war</packaging>
