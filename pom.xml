@@ -70,6 +70,7 @@
                 <configuration>
                     <!-- work around for a bug in javadoc plugin that causes the release to fail. see MRELEASE-271 -->
                     <preparationGoals>clean install</preparationGoals>
+		     <localCheckout>true</localCheckout>
                     <tagNameFormat>core-@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
