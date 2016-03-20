@@ -13,6 +13,10 @@
         <version>1.3.3.RELEASE</version>
     </parent>
 
+    <properties>
+        <project.scm.id>gogs<project.scm.id>
+    </properties>
+
     <packaging>war</packaging>
 
     <scm>
