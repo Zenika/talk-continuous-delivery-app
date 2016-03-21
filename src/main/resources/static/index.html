@@ -72,16 +72,6 @@
     awesome.count = 0;
     awesome.delay = 1000;
 
-    awesome.about = function() {
-        $.ajax({
-            type: "GET",
-            url: "/api/about",
-            success: function (data) {
-                $('')
-            }
-        })
-    }
-
     awesome.signin = function () {
         awesome.user = document.getElementById("name").value;
         $('#signin').fadeOut();

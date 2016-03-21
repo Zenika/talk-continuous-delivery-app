@@ -17,8 +17,9 @@ public class Message {
     @Column(name = "the_date")
     private String date;
 
-//    @Column(name = "dateAsDate")
-//    private Date dateAsDate;
+    // add-column: uncomment following lines
+    // @Column(name = "dateAsDate")
+    // private Date dateAsDate;
 
     private String owner;
 
@@ -59,12 +60,13 @@ public class Message {
     public void setMessage(String message) {
         this.message = message;
     }
-//
-//    public Date getDateAsDate() {
-//        return dateAsDate;
-//    }
-//
-//    public void setDateAsDate(Date dateAsDate) {
-//        this.dateAsDate = dateAsDate;
-//    }
+
+    // add-column: uncomment following lines
+    // public Date getDateAsDate() {
+    //     return dateAsDate;
+    // }
+
+    // public void setDateAsDate(Date dateAsDate) {
+    //     this.dateAsDate = dateAsDate;
+    // }
 }
