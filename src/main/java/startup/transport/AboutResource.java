@@ -23,6 +23,9 @@ public class AboutResource {
     @Value("${application.company}")
     private String company;
 
+    @Value("${application.banner.color:#FF3399}")
+    private String color;
+
     @RequestMapping(value = "/api/about", method = RequestMethod.GET)
     public Map<String, Object> about() {
         Map<String, Object> data = new HashMap<>();
@@ -30,6 +33,7 @@ public class AboutResource {
         data.put("app.build.sha1", commitId);
         data.put("app.build.date", commitTime);
         data.put("app.company", company);
+        data.put("app.banner.color", color);
         return data;
     }
 }
