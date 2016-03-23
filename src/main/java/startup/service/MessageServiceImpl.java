@@ -1,6 +1,5 @@
 package startup.service;
 
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -8,11 +7,10 @@ import startup.business.Message;
 import startup.dao.MessageDao;
 
 import javax.annotation.PostConstruct;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,23 +28,13 @@ public class MessageServiceImpl implements MessageService {
     @Value("${git.commit.id}")
     private String gitCommit;
 
+    @Autowired
+    private WhoAmIService whoAmI;
+
     @PostConstruct
     public void ready() {
-        String hostname = "N/A";
-        try {
-            Process p = Runtime.getRuntime().exec("hostname");
-            BufferedReader input = new BufferedReader(new InputStreamReader(p.getInputStream()));
-            String line;
-            hostname = "";
-            while ((line = input.readLine()) != null) {
-                hostname += line;
-            }
-        } catch (IOException e) {
-            // swallowed, don't tell anyone !
-        }
-
         Message message = new Message();
-        message.setOwner("system (" + hostname + ")");
+        message.setOwner("system (" + whoAmI.tellMe() + ")");
         message.setMessage("Now running " + gitTagName + " #" + gitCommit);
         send(message);
     }
@@ -71,7 +59,7 @@ public class MessageServiceImpl implements MessageService {
         message.setDate(now.format(DateTimeFormatter.ISO_DATE_TIME));
 
         // add-column: uncomment following lines
-        //message.setDateAsDate(new Date(now.toEpochMilli()));
+        //message.setDateAsDate(Date.from(now.toInstant(ZoneOffset.ofHours(1))));
         dao.save(message);
     }
 }

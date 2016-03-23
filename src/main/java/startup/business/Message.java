@@ -14,12 +14,13 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // remove-column: when 1.3
     @Column(name = "the_date")
     private String date;
 
     // add-column: uncomment following lines
-    // @Column(name = "dateAsDate")
-    // private Date dateAsDate;
+    //@Column(name = "date_as_date")
+    //private Date dateAsDate;
 
     private String owner;
 
@@ -62,11 +63,11 @@ public class Message {
     }
 
     // add-column: uncomment following lines
-    // public Date getDateAsDate() {
-    //     return dateAsDate;
-    // }
+    //public Date getDateAsDate() {
+    //    return dateAsDate;
+    //}
 
-    // public void setDateAsDate(Date dateAsDate) {
-    //     this.dateAsDate = dateAsDate;
-    // }
+    //public void setDateAsDate(Date dateAsDate) {
+    //    this.dateAsDate = dateAsDate;
+    //}
 }
